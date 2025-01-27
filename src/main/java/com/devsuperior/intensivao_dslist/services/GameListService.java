@@ -1,9 +1,11 @@
 package com.devsuperior.intensivao_dslist.services;
 
 import com.devsuperior.intensivao_dslist.dto.GameDTO;
-import com.devsuperior.intensivao_dslist.dto.GameMinDTO;
+import com.devsuperior.intensivao_dslist.dto.GameListDTO;
+//import com.devsuperior.intensivao_dslist.dto.GameMinDTO;
 import com.devsuperior.intensivao_dslist.entities.Game;
-import com.devsuperior.intensivao_dslist.projections.GameMinProjection;
+import com.devsuperior.intensivao_dslist.entities.GameList;
+import com.devsuperior.intensivao_dslist.repositories.GameListRepository;
 import com.devsuperior.intensivao_dslist.repositories.GameRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -12,7 +14,10 @@ import org.springframework.transaction.annotation.Transactional;
 import java.util.List;
 
 @Service
-public class GameService {
+public class GameListService {
+  
+  @Autowired
+  private GameListRepository gameListRepository;
   
   @Autowired
   private GameRepository gameRepository;
@@ -24,16 +29,9 @@ public class GameService {
   }
   
   @Transactional(readOnly = true)
-  public List<GameMinDTO> findAll() {
-    List<Game> result = gameRepository.findAll();
-    List<GameMinDTO> dto = result.stream().map(x -> new GameMinDTO(x)).toList();
-    return dto;
-  }
-  
-  @Transactional(readOnly = true)
-  public List<GameMinDTO> findByGameList(Long listId) {
-    List<GameMinProjection> result = gameRepository.searchByList(listId);
-    List<GameMinDTO> dto = result.stream().map(x -> new GameMinDTO(x)).toList();
+  public List<GameListDTO> findAll() {
+    List<GameList> result = gameListRepository.findAll();
+    List<GameListDTO> dto = result.stream().map(x -> new GameListDTO(x)).toList();
     return dto;
   }
 }

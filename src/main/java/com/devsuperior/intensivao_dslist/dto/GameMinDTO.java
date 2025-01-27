@@ -1,13 +1,14 @@
 package com.devsuperior.intensivao_dslist.dto;
 
 import com.devsuperior.intensivao_dslist.entities.Game;
+import com.devsuperior.intensivao_dslist.projections.GameMinProjection;
 import org.jetbrains.annotations.NotNull;
 
 public class GameMinDTO {
 
   private Long id;
   private String title;
-  private Integer year;
+  private Integer gameYear;
   private String imgUrl;
   private String shortDescription;
 
@@ -17,9 +18,17 @@ public class GameMinDTO {
   public GameMinDTO(@NotNull Game entity) {
     id = entity.getId();
     title = entity.getTitle();
-    year = entity.getYear();
+    gameYear = entity.getGameYear();
     imgUrl = entity.getImgUrl();
     shortDescription = entity.getShortDescription();
+  }
+  
+  public GameMinDTO(@NotNull GameMinProjection projection) {
+    id = projection.getId();
+    title = projection.getTitle();
+    gameYear = projection.getGameYear();
+    imgUrl = projection.getImgUrl();
+    shortDescription = projection.getShortDescription();
   }
 
   public Long getId() {
@@ -30,8 +39,8 @@ public class GameMinDTO {
     return title;
   }
 
-  public Integer getYear() {
-    return year;
+  public Integer getGameYear() {
+    return gameYear;
   }
 
   public String getImgUrl() {
