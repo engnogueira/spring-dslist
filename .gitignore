@@ -58,5 +58,8 @@ hs_err_pid*
 replay_pid*
 
 # Docker
+.docker/
+.dockerignore
+docker-compose.yml
 *.dockerfile
-.data/
+**/.data/
