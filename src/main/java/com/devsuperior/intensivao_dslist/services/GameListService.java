@@ -2,7 +2,6 @@ package com.devsuperior.intensivao_dslist.services;
 
 import com.devsuperior.intensivao_dslist.dto.GameDTO;
 import com.devsuperior.intensivao_dslist.dto.GameListDTO;
-//import com.devsuperior.intensivao_dslist.dto.GameMinDTO;
 import com.devsuperior.intensivao_dslist.entities.Game;
 import com.devsuperior.intensivao_dslist.entities.GameList;
 import com.devsuperior.intensivao_dslist.repositories.GameListRepository;
