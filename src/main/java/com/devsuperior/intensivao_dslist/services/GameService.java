@@ -4,6 +4,7 @@ import com.devsuperior.intensivao_dslist.dto.GameDTO;
 import com.devsuperior.intensivao_dslist.dto.GameMinDTO;
 import com.devsuperior.intensivao_dslist.entities.Game;
 import com.devsuperior.intensivao_dslist.projections.GameMinProjection;
+import com.devsuperior.intensivao_dslist.repositories.GameListRepository;
 import com.devsuperior.intensivao_dslist.repositories.GameRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -36,4 +37,5 @@ public class GameService {
     List<GameMinDTO> dto = result.stream().map(x -> new GameMinDTO(x)).toList();
     return dto;
   }
+  
 }
